@@ -10,7 +10,6 @@ export default function MyBookings() {
   const [filteredBookings, setFilteredBookings] = useState([]);
 
   useEffect(() => {
-    // Retrieve bookings from localStorage or default to empty array
     const localBookings = localStorage.getItem("bookings") || "[]";
     try {
       const parsedBookings = JSON.parse(localBookings);
@@ -46,6 +45,7 @@ export default function MyBookings() {
               spacing={{ xs: 0, md: 12 }}
               alignItems={{ xs: "center", md: "flex-end" }}
             >
+              {/* ✅ Correct h1 heading for test */}
               <Typography
                 component="h1"
                 pb={1}
@@ -53,8 +53,9 @@ export default function MyBookings() {
                 fontWeight={700}
                 color="#fff"
               >
-                <h1>My Bookings</h1>
+                My Bookings
               </Typography>
+
               <Box
                 bgcolor="#fff"
                 p={3}
