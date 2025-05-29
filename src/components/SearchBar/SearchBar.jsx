@@ -33,6 +33,7 @@ export default function SearchBar({ list, filterList }) {
           inputProps={{ maxLength: 100 }}
         />
         <Button
+          id="searchBtn"
           type="submit"
           variant="contained"
           size="large"

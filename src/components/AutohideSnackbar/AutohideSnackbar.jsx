@@ -5,7 +5,7 @@ export default function CustomSnackbar({
   open,
   setOpen,
   message,
-  severity = "success", // Options: 'error', 'warning', 'info', 'success'
+  severity = "success", 
   duration = 5000,
   position = { vertical: "bottom", horizontal: "center" },
 }) {
