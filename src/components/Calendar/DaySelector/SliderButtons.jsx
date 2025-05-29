@@ -24,6 +24,7 @@ function SlidePrevButton() {
       alt="Previous"
       onClick={() => swiper.slidePrev()}
       sx={buttonStyles("left")}
+      data-testid="slide-prev-button"
     />
   );
 }
@@ -38,6 +39,7 @@ function SlideNextButton() {
       alt="Next"
       onClick={() => swiper.slideNext()}
       sx={buttonStyles("right")}
+      data-testid="slide-next-button"
     />
   );
 }

@@ -24,7 +24,7 @@ export default function DaySelector({
   };
 
   return (
-    <Stack pt={3} position="relative">
+    <Stack pt={3} position="relative" data-testid="day-selector">
       <Divider sx={{ mb: 3 }} />
 
       <Swiper
@@ -46,35 +46,42 @@ export default function DaySelector({
           </Box>
         </span>
 
-        {dateItems.map((day, index) => (
-          <SwiperSlide key={index} className={styles.swiperslide}>
-            <Stack
-              textAlign="center"
-              onClick={() => setSelectedDate(day)}
-              sx={{ cursor: "pointer" }}
+        {dateItems.map((day, index) => {
+          const isSelected = isEqual(day, selectedDate);
+          return (
+            <SwiperSlide
+              key={index}
+              className={styles.swiperslide}
+              data-testid={`day-item-${index}`}
             >
-              <Typography
-                fontWeight={isEqual(day, selectedDate) ? 700 : 400}
-                fontSize={{ xs: 11, md: 16 }}
+              <Stack
+                textAlign="center"
+                onClick={() => setSelectedDate(day)}
+                sx={{ cursor: "pointer" }}
+                data-testid={`day-select-${customDateFormat(day).toLowerCase()}`}
               >
-                {customDateFormat(day)}
-              </Typography>
-              <Typography fontSize={{ xs: 8, md: 12 }} color="primary.green">
-                {`${totalSlots} Slots Available`}
-              </Typography>
+                <Typography
+                  fontWeight={isSelected ? 700 : 400}
+                  fontSize={{ xs: 11, md: 16 }}
+                >
+                  {customDateFormat(day)}
+                </Typography>
+                <Typography fontSize={{ xs: 8, md: 12 }} color="primary.green">
+                  {`${totalSlots} Slots Available`}
+                </Typography>
 
-              <Box
-                height={{ xs: "4px", md: "5px" }}
-                width={{ xs: 1, md: "calc(100% - 50px)" }}
-                bgcolor={
-                  isEqual(day, selectedDate) ? "primary.main" : "transparent"
-                }
-                mt="5px"
-                mx="auto"
-              />
-            </Stack>
-          </SwiperSlide>
-        ))}
+                <Box
+                  height={{ xs: "4px", md: "5px" }}
+                  width={{ xs: 1, md: "calc(100% - 50px)" }}
+                  bgcolor={isSelected ? "primary.main" : "transparent"}
+                  mt="5px"
+                  mx="auto"
+                  data-testid={`day-highlight-${index}`}
+                />
+              </Stack>
+            </SwiperSlide>
+          );
+        })}
 
         {/* Next Button */}
         <span slot="container-end">

@@ -59,6 +59,8 @@ export default function BookingModal({
           bgcolor: "#fff",
           borderRadius: 2,
         }}
+        role="dialog"
+        data-testid="booking-modal"
       >
         <Typography variant="h5" fontWeight={600} mb={1}>
           Confirm Booking
@@ -82,15 +84,22 @@ export default function BookingModal({
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              inputProps={{ "data-testid": "booking-email-input" }}
             />
             <Stack direction="row" spacing={2}>
-              <Button type="submit" variant="contained" size="large">
+              <Button
+                type="submit"
+                variant="contained"
+                size="large"
+                data-testid="confirm-booking-btn"
+              >
                 Confirm
               </Button>
               <Button
                 variant="outlined"
                 size="large"
                 onClick={() => setOpen(false)}
+                data-testid="cancel-booking-btn"
               >
                 Cancel
               </Button>
