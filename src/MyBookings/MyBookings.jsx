@@ -53,7 +53,7 @@ export default function MyBookings() {
                 fontWeight={700}
                 color="#fff"
               >
-                My Bookings
+                <h1>My Bookings</h1>
               </Typography>
               <Box
                 bgcolor="#fff"
