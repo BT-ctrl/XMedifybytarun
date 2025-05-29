@@ -1,0 +1,25 @@
+/* styles.css */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  font-size: 56px;
+  color: #000;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 48px;
+  color: #1B3C74;
+  font-weight: 600;
+}
+
+.MuiButton-root {
+  border-radius: 8px;
+  text-transform: none;
+}
